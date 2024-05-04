@@ -9,7 +9,7 @@ const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const formRef = useRef();
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
