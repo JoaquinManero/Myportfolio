@@ -39,7 +39,10 @@ const EmailSection = () => {
           }, 5000);
         }
       );
-    formRef.current.reset();
+
+    if (formRef.current) {
+      (formRef.current as HTMLFormElement).reset();
+    }
   };
 
   return (
