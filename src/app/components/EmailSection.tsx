@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 
 import Image from "next/image";
 import emailjs from "@emailjs/browser";
-import { TypewriterEffectSmoothDemo } from "../components/acceternity/Typewritter";
+import { TypewriterEffectSmoothDemo } from "./acceternity/Typewritter";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -16,10 +16,10 @@ const EmailSection = () => {
 
     emailjs
       .sendForm(
-        process.env.NEXT_PUBLIC_SERVICE_ID,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID,
-        formRef.current,
-        process.env.NEXT_PUBLIC_USER_ID
+        process.env.NEXT_PUBLIC_SERVICE_ID ?? "",
+        process.env.NEXT_PUBLIC_TEMPLATE_ID ?? "",
+        formRef.current ?? "",
+        process.env.NEXT_PUBLIC_USER_ID ?? ""
       )
       .then(
         () => {
@@ -84,7 +84,6 @@ const EmailSection = () => {
             <div className="mb-6">
               <label
                 htmlFor="subject"
-                name="from_name"
                 className="text-white block text-sm mb-2 font-medium"
               >
                 Subject

@@ -3,7 +3,7 @@ import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
 import { ThreeDCardDemo } from "./acceternity/ThreeCardDemo";
-import { AnimatedTooltipPreview } from "./acceternity/Three.tsx";
+import { AnimatedTooltipPreview } from "./acceternity/Three";
 
 const TAB_DATA = [
   {
@@ -211,7 +211,10 @@ const AboutSection = () => {
           <div className="flex flex-row ">
             <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
             <div className="-mt-2">
-              <AnimatedTooltipPreview image="/images/me3.png" />
+              <AnimatedTooltipPreview
+                image="/images/me3.png"
+                description={undefined}
+              />
             </div>
           </div>
           <p className="text-base lg:text-[15px]">
@@ -236,13 +239,7 @@ const AboutSection = () => {
               {" "}
               Education{" "}
             </TabButton>
-            {/* <TabButton
-              selectTab={() => handleTabChange("certifications")}
-              active={tab === "certifications"}
-            >
-              {" "}
-              Certifications{" "}
-            </TabButton> */}
+
             <TabButton
               selectTab={() => handleTabChange("languages")}
               active={tab === "languages"}
@@ -266,7 +263,7 @@ const AboutSection = () => {
             </TabButton>
           </div>
           <div className="mt-8">
-            {TAB_DATA.find((t) => t.id === tab).content}
+            {TAB_DATA.find((t) => t.id === tab)?.content}
           </div>
         </div>
       </div>
